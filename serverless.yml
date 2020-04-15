@@ -1,0 +1,33 @@
+service: bref-demo-laravel
+
+provider:
+    name: aws
+    region: us-east-1
+    runtime: provided
+    environment:
+        APP_STORAGE: '/tmp/storage'
+
+plugins:
+    - ./vendor/bref/bref
+
+functions:
+    website:
+        handler: public/index.php
+        layers:
+            - 'arn:aws:lambda:us-east-1:209497400698:layer:php-73-fpm:19'
+        events:
+            -   http: 'ANY /'
+            -   http: 'ANY {proxy+}'
+
+artisan:
+    handler: artisan
+    timeout: 120 # in seconds
+    layers:
+        - 'arn:aws:lambda:us-east-1:209497400698:layer:php-73-fpm:19' # PHP
+        - 'arn:aws:lambda:us-east-1:209497400698:layer:console:19' # The "Console" layer
+
+# Exclude files from deployment
+package:
+    exclude:
+        - 'tests/**'
+        - 'storage/**'

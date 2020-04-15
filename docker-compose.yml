@@ -1,0 +1,14 @@
+version: '2'
+
+services:
+  jenkins:
+    build:
+      context: .
+    hostname: jenkins
+    ports:
+      - "8086:8080"
+      - "50090:50090"
+    volumes:
+      - './jenkins_home:/var/jenkins_home'
+      - '/var/run/docker.sock:/var/run/docker.sock'
+      - '/usr/local/bin/docker:/usr/bin/docker'
