@@ -31,3 +31,4 @@ package:
     exclude:
         - 'tests/**'
         - 'storage/**'
+        - 'jenkins_home/**'

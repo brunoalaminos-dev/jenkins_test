@@ -18,5 +18,10 @@
         "sass": "^1.15.2",
         "sass-loader": "^8.0.0",
         "serverless-plugin-include-dependencies": "^4.1.0"
+    },
+    "dependencies": {
+        "serverless": "^1.67.3",
+        "to": "^0.2.9",
+        "update": "^0.7.4"
     }
 }
