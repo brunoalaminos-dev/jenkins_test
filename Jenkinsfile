@@ -16,5 +16,11 @@ pipeline {
                 '''
             }
         }
+
+        stage('serverless deploy') {
+            steps {
+                sh 'serverless deploy'
+            }
+        }
     }
 }
