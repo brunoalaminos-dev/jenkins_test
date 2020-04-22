@@ -12,7 +12,4 @@ RUN apt-get update  -qq \
     && apt-get install docker-ce=17.12.1~ce-0~debian -y
 RUN usermod -aG docker jenkins
 
-RUN yum update -y \
-    && yum install -y gcc-c++ make \
-    && curl -sL https://rpm.nodesource.com/setup_10.x | bash - \
-    && yum install nodejs -y
+RUN npm install

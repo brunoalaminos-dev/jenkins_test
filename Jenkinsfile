@@ -3,8 +3,7 @@ pipeline {
     stages {
         stage('serverless deploy') {
             steps {
-                sh 'npm install -g serverless'
-                sh 'serverless --version'
+                sh 'npm -v'
             }
         }
     }
