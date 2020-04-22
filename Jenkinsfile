@@ -3,7 +3,8 @@ pipeline {
     stages {
         stage('serverless deploy') {
             steps {
-                sh 'npm -v'
+                sh 'curl -o- -L https://slss.io/install | bash'
+                sh 'serverless'
             }
         }
     }
